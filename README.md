@@ -18,6 +18,7 @@ Movies could be added in future versions.
 
 You will need to program your coin selector to accept your coins
 https://www.sparkfun.com/products/11719
+
 Do not connect coin selector directly on rasp, con selector on pulse pin has 5V output, rasp can only handle 3.3V
 Schematics for lowering voltage will be available soon...
 
