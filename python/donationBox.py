@@ -8,6 +8,9 @@
 # prepared for windows version                                #
 # coud be prepared to run on every linux system               #
 #                                                             #
+# This code is part of workshop, some part of code like pwm   #
+# are just for testing purpose                                #
+#                                                             #
 # by Goran Mahovlic                                           #
 ###############################################################
 
@@ -19,6 +22,7 @@ from datetime import datetime, date
 
 CheckOS = os.uname()[1]
 
+# check if platform is windows
 if sys.platform == 'win32' and sys.getwindowsversion()[0] >= 5: 
 # condi. and
 # On NT like Windows versions smpeg video needs windb.
@@ -155,12 +159,16 @@ pygame.mouse.set_visible(0)
 pygame.mixer.quit()
 pygame.mixer.init(44100, -16,2,2048)
 
+#You will need to place your own images into /home/donationbox/Pictures/ folder
+
 projectWelcomeImage = pygame.image.load("/home/donationbox/Pictures/projectWelcomeImage.png") 
 projectOneImage = pygame.image.load("/home/donationbox/Pictures/projectOneImage.png")
 projectTwoImage = pygame.image.load("/home/donationbox/Pictures/projectTwoImage.png")
 projectThreeImage = pygame.image.load("/home/donationbox/Pictures/projectThreeImage.png")
 projectFourImage = pygame.image.load("/home/donationbox/Pictures/projectFourImage.png")
 projectFiveImage = pygame.image.load("/home/donationbox/Pictures/projectFiveImage.png")
+
+#You will need to place your own sounds into /home/donationbox/Sound/ folder
 
 projectWelcomeSound = pygame.mixer.Sound("/home/donationbox/Sound/projectWelcomeSound.wav")
 projectOneSound = pygame.mixer.Sound("/home/donationbox/Sound/projectOneSound.wav")
@@ -176,6 +184,7 @@ font.set_bold(False)
 font.set_italic(True)
 blackColor = 0,0,0
 
+# open database get money for project from database  
 def getMoneyForProject(money_project):
     if sys.platform == 'win32' and sys.getwindowsversion()[0] >= 5:
         print ("No log on windows")
@@ -199,10 +208,12 @@ def sendToDatabase(ProjectMoney,CurrentProject):
         conn.commit()
         conn.close()
 
+# you can use this function for logging
 def sendToText(text):
     text_file = open("/home/donationbox/donationbox.log", "a")
     text_file.write(str(text))
     
+# you can add money, and change project with keyboard for testing purpose     
 def checkKeyboard():
     global projectChanged
     global project
@@ -241,6 +252,7 @@ def checkKeyboard():
             else:
                 print event.key
              
+# checking no. of pulses if 6 pulses (this can be set on coin selector) detected you have inserted first coint type
 def checkMoney():
     time_now = time.time()
     global money
@@ -250,6 +262,7 @@ def checkMoney():
         if (pulse == 6):
             money = 1
             sendToDatabase(money,project)
+            #print "Inserted first coin type"
             print "Ubacili ste 1kn"
             projectChanged = True
             money = 0
@@ -257,6 +270,7 @@ def checkMoney():
         elif (pulse == 7):
             money = 2
             sendToDatabase(money,project)
+            #print "Inserted second coin type"
             print "Ubacili ste 2kn"
             projectChanged = True
             money = 0
@@ -264,6 +278,7 @@ def checkMoney():
         elif (pulse == 8):
             money = 5
             sendToDatabase(money,project)
+            #print "Inserted third coin type"
             print "Ubacili ste 5kn"
             projectChanged = True
             money = 0
@@ -271,6 +286,7 @@ def checkMoney():
         elif (pulse == 0):
             pulse = 0
                 
+# checking witch project is currently loaded so we can load image and sound                
 def checkProject():
     global project
     global projectChanged
@@ -330,10 +346,12 @@ def checkProject():
         projectFiveSound.stop()           
         projectChanged = False
         
+# text for displaying money for current project 
 def text_trenutno(score,fontColor):
    scoretext=font.render(str(score), 1,fontColor)
    screen.blit(scoretext, (10, 10))
    
+# at begining loading wellcome image
 screen.fill((255,255,255))
 screen.blit(projectWelcomeImage,(0,0))
 text_trenutno(getMoneyForProject(0),blackColor)
@@ -344,9 +362,9 @@ projectWelcomeSound.stop()
    
 try:
     while True:
-        checkMoney()
-        checkKeyboard()
-        if (projectChanged):       
+        checkMoney()            # check if money is inserted
+        checkKeyboard()         # check for keyboard events
+        if (projectChanged):    # check if project has changed   
             checkProject()
 
 except KeyboardInterrupt:
