@@ -18,18 +18,11 @@ https://www.sparkfun.com/products/11719
 
 You will need to change LoRa keys in lora.c
 
-[x] Left button - get random project
-
-[x] Right button - like project
-
-[x] Coin acceptor
-
-[x] Sends changes(in money and likes) to TTN network over LoRa
-
-[ ] Money and likes to selected project
-
-[ ] SD card support
-
-[ ] sounds
-
-[ ] game play if money is inserted...
+ [x] Left button - get random project
+ [x] Right button - like project
+ [x] Coin acceptor
+ [x] Sends changes(in money and likes) to TTN network over LoRa
+ [ ] Money and likes to selected project
+ [ ] SD card support
+ [ ] sounds
+ [ ] game play if money is inserted...
