@@ -6,23 +6,24 @@
  | |__| | (_) | | | | (_| | |_| | (_) | | | | |_) | (_) >  <  \  /   ___) |
  |_____/ \___/|_| |_|\__,_|\__|_|\___/|_| |_|____/ \___/_/\_\  \/   |____/
 
- Description: Generic lora driver
-
+ Description: 
  License: FreeBSD
-
  Maintainer: Goran Mahovlić
-
  by: Radiona.org
 
 */
 
-#ifndef LORA_H_
-#define LORA_H_
+#include "../inc/includes.h"
 
-void setupLoRa(void);
-void do_send(osjob_t* j);
-//#define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-//#define TIME_TO_SLEEP  60        /* Time ESP32 will go to sleep (in seconds) */
-// #define USE_JOINING
+const unsigned CHECK_INTERVAL = 1;
 
-#endif /* LORA_H_ */
+void setupLCD(void){
+
+      delay(1000);
+      pinMode(TFT_RESET,OUTPUT);
+      digitalWrite(TFT_RESET,HIGH);
+      delay(1000);
+      SPI.begin(5, 19, 27);
+      tft.begin();
+      delay(1000);
+}

@@ -16,13 +16,12 @@
 
 */
 
-#ifndef LORA_H_
-#define LORA_H_
+#ifndef TIMERS_H_
+#define TIMERS_H_
 
-void setupLoRa(void);
-void do_send(osjob_t* j);
-//#define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-//#define TIME_TO_SLEEP  60        /* Time ESP32 will go to sleep (in seconds) */
-// #define USE_JOINING
+void setupTimers(void);
+void checkLikeTime(void);
+void checkSerialDebug(void);
+void IRAM_ATTR onTimer();
 
-#endif /* LORA_H_ */
+#endif /* TIMERS_H_ */

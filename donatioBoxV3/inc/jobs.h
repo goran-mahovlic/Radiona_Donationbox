@@ -16,4 +16,9 @@
 
 */
 
+#ifndef JOBS_H_
+#define JOBS_H_
 
+extern void do_check(osjob_t* j);
+
+#endif /* JOBS_H_ */

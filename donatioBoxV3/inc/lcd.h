@@ -16,13 +16,12 @@
 
 */
 
-#ifndef LORA_H_
-#define LORA_H_
+#ifndef LCD_H_
+#define LCD_H_
 
-void setupLoRa(void);
-void do_send(osjob_t* j);
-//#define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-//#define TIME_TO_SLEEP  60        /* Time ESP32 will go to sleep (in seconds) */
-// #define USE_JOINING
+// define how many project you have
+#define NO_PROJECTS 4
 
-#endif /* LORA_H_ */
+void setupLCD(void);
+
+#endif /* LCD_H_ */
