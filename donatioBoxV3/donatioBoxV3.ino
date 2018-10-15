@@ -9,13 +9,9 @@
  Description: DonationBoxV3 box for presentation and exibitions - users can donate money or likes
  
  Based on Heltec esp32 wifi-lora-32 board
-
  Version: 1.03 
-
  License: FreeBSD
-
  Maintainer: Goran Mahovlić
-
  by: Radiona.org
 
 */
