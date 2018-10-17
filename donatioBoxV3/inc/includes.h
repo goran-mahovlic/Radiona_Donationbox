@@ -25,11 +25,9 @@
 #include <Adafruit_ILI9341.h>
 #include "buttons.h"
 #include "coins.h"
-#include "interrupts.h"
 #include "jobs.h"
 #include "lcd.h"
 #include "lora.h"
-#include "projects.h"
 #include "timers.h"
 
 #include "../pic/welcome.c"
