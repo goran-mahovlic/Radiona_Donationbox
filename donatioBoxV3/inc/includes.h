@@ -21,7 +21,7 @@
 
 #include <lmic.h>
 #include <hal/hal.h>
-#include <SPI.h>
+#include "SPI.h"
 #include <Adafruit_ILI9341.h>
 #include "buttons.h"
 #include "coins.h"
@@ -30,10 +30,10 @@
 #include "lora.h"
 #include "timers.h"
 
-#include "../pic/welcome.c"
-#include "../pic/ulx3s.c"
+#include "../pic/donation.c"
 #include "../pic/laser.c"
-#include "../pic/kikiriki.c"
+#include "../pic/smartZg.c"
+#include "../pic/ulx3s.c"
 #include "../pic/synthomir.c"
 
 
@@ -43,6 +43,8 @@ extern Adafruit_ILI9341 tft;
 const byte leftButton = 12;
 const byte rightButton = 13;
 const byte coinAcceptor = 21;
+const byte RedLed = 16;
+const byte GreenLed = 25;
 //dio = {26, 33, 32},
 
 static osjob_t sendjob;
@@ -68,5 +70,18 @@ extern volatile int cointAcceptorInterruptCounter;
 extern long currentProject;
 extern uint16_t projectMoney;
 extern uint16_t projectLikes;
+
+extern uint16_t project0Likes;
+extern uint16_t project1Likes;
+extern uint16_t project2Likes;
+extern uint16_t project3Likes;
+extern uint16_t project4Likes;
+
+extern uint16_t project0Money;
+extern uint16_t project1Money;
+extern uint16_t project2Money;
+extern uint16_t project3Money;
+extern uint16_t project4Money;
+
 
 #endif /* INCLUDES_H_ */

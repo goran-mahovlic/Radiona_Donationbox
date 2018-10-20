@@ -20,5 +20,6 @@
 #define JOBS_H_
 
 extern void do_check(osjob_t* j);
+extern void initSD();
 
 #endif /* JOBS_H_ */

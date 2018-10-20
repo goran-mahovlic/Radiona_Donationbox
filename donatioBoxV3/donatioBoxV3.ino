@@ -19,7 +19,7 @@
 #include "inc/includes.h"
 
 // Here you define how many project you have
-#define NO_PROJECTS 4
+#define NO_PROJECTS 5
      
 void setup() {
   // Interrupt every 100ms to check for changes
@@ -34,6 +34,7 @@ void setup() {
   os_init();
   // SetupLoRa
   setupLoRa();
+  initSD();
   // Start check for project change - change picture - send serial 
   do_check(&checkjob);
   // Start LoRa send job (sending automatically starts OTAA too)
