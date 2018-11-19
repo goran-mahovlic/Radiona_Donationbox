@@ -15,7 +15,7 @@
 
 #include "../inc/includes.h"
 
-#define TFT_DC 2
+#define TFT_DC 23
 #define TFT_CS  22
 
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RESET);

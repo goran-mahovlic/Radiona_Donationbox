@@ -31,14 +31,14 @@ void setup() {
   // Init LCD
   setupLCD();
   // LMIC init
-  os_init();
+//  os_init();
   // SetupLoRa
-  setupLoRa();
-  initSD();
+//  setupLoRa();
+//  initSD();
   // Start check for project change - change picture - send serial 
   do_check(&checkjob);
   // Start LoRa send job (sending automatically starts OTAA too)
-  do_send(&sendjob);
+//  do_send(&sendjob);
 }
  
 void loop() {

@@ -21,7 +21,7 @@
 
 #include <lmic.h>
 #include <hal/hal.h>
-#include "SPI.h"
+#include <SPI.h>
 #include <Adafruit_ILI9341.h>
 #include "buttons.h"
 #include "coins.h"
@@ -37,7 +37,7 @@
 #include "../pic/synthomir.c"
 
 
-#define TFT_RESET 23
+#define TFT_RESET 2
 extern Adafruit_ILI9341 tft;
 
 const byte leftButton = 12;

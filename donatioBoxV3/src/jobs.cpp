@@ -17,9 +17,9 @@
 
 
 
-#define TFT_DC 2
+#define TFT_DC 23
 #define TFT_CS  22
-#define TFT_RESET 23
+#define TFT_RESET 2
 
 const unsigned CHECK_INTERVAL = 1;
 
@@ -28,10 +28,9 @@ void do_check(osjob_t* j) {
   if (refreshScreen){
     tft.setRotation(3);
 
-
   switch (currentProject) {
     case 0:    // wellcome
-      tft.drawRGBBitmap(0,0,(uint16_t *)welcome.pixel_data,welcome.width, welcome.height);
+      tft.drawRGBBitmap(0,0,(uint16_t *)donation.pixel_data,donation.width, donation.height);
       break;
     case 1:    // ulx3s
       tft.drawRGBBitmap(0,0,(uint16_t *)ulx3s.pixel_data,ulx3s.width, ulx3s.height);
@@ -40,13 +39,13 @@ void do_check(osjob_t* j) {
       tft.drawRGBBitmap(0,0,(uint16_t *)laser.pixel_data,laser.width, laser.height);
       break;
     case 3:    // kikiriki
-      tft.drawRGBBitmap(0,0,(uint16_t *)kikiriki.pixel_data,kikiriki.width, kikiriki.height);
+      tft.drawRGBBitmap(0,0,(uint16_t *)smartZg.pixel_data,smartZg.width, smartZg.height);
       break;
     case 4:    // kikiriki
       tft.drawRGBBitmap(0,0,(uint16_t *)synthomir.pixel_data,synthomir.width, synthomir.height);
     break;
     default:
-          tft.drawRGBBitmap(0,0,(uint16_t *)welcome.pixel_data,welcome.width, welcome.height);
+          tft.drawRGBBitmap(0,0,(uint16_t *)donation.pixel_data,donation.width, donation.height);
     break;
   } 
     refreshScreen = false;
